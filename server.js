@@ -13,7 +13,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow all origins (replace with specific URL for production)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+  }));
 // app.use(cors({
 //   origin: 'http://localhost:3000', // Frontend URL
 //   methods: ['GET', 'POST','PATCH', 'DELETE', 'PUT'],
